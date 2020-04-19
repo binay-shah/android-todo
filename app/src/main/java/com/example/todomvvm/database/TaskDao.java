@@ -9,20 +9,17 @@ import androidx.room.Update;
 
 import java.util.List;
 
-@Dao
+// TODO (01) Create annotated interface TaskDao.
 public interface TaskDao {
 
-    @Query("select * from task order by priority")
-    List<TaskEntry> loadAllTasks();
+    // TODO (02) Add annotated loadAllTasks() method and query.
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertTask(TaskEntry task);
+   // TODO (03) Add annotated insertTask() method for inserting a single Task.
 
-    @Update
-    void update(TaskEntry task);
+    // TODO (04) Add annotated updateTask() method for updating a Task.
 
-    @Delete
-    void deleteTask(TaskEntry task);
+    // TODO (04) Add annotated deleteTask() method for deleteing a Task.
+
 
 
 }
