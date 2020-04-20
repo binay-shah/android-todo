@@ -9,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.example.todomvvm.database.AppDatabase;
 import com.example.todomvvm.database.TaskEntry;
+
+import java.util.Date;
 
 public class AddEditTaskActivity extends AppCompatActivity {
 
@@ -88,6 +91,19 @@ public class AddEditTaskActivity extends AppCompatActivity {
      */
     public void onSaveButtonClicked() {
         // Not yet implemented
+        String description = mEditText.getText().toString();
+        int priority = getPriorityFromViews();
+        Date date = new Date();
+        final TaskEntry task = new TaskEntry(description, priority, date);
+        AppDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                AppDatabase.getInstance(getApplicationContext()).taskDao().insertTask(task);
+            }
+        });
+
+        finish();
+
     }
 
     /**

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.todomvvm.database.AppDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
 
         DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(decoration);
+
+
 
         /*
          Add a touch helper to the RecyclerView to recognize when a user swipes to delete an item.
